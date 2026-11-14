@@ -54,11 +54,11 @@ hotel-booking-analytics-etl/
 │   ├── 03_gold.sql
 │   └── 04_data_quality.sql
 ├── dashboard/
-│   └── Hotel_Booking_Dashboard.pdf
+│   └── Hotel_Booking_Analytics_Dashboard.pdf
 ├── docs/
 │   ├── cleaning_rules.md
 │   └── review_answers.md
-└── screenshots/
+└── Screenshots/
 ```
 
 ## 4. How I Set It Up
@@ -81,15 +81,15 @@ SELECT COUNT(*) FROM read_files('/Volumes/hotel_bookings/default/raw_files/',
 
 **Bronze:** the CSV loaded with 1,316 rows.
 
-![Bronze table in the pipeline graph](screenshots/01_bronze_graph.png)
+![Bronze table in the pipeline graph](Screenshots/01_bronze_graph.png)
 
 **Silver:** 1,269 bookings passed the quality checks and 21 rows were rejected and saved with a reason.
 
-![Silver tables in the pipeline graph](screenshots/02_silver_graph.png)
+![Silver tables in the pipeline graph](Screenshots/02_silver_graph.png)
 
 **Gold:** five Gold tables were built from the clean data, and the full pipeline ran with every step successful.
 
-![Full pipeline graph](screenshots/03_pipeline_graph_full.png)
+![Full pipeline graph](Screenshots/03_pipeline_graph_full.png)
 
 ### Reconciliation
 
@@ -97,7 +97,7 @@ To prove that no row was lost, I checked that every Bronze row is accounted for:
 
 **1,316 Bronze rows = 1,269 clean + 21 rejected + 26 duplicates removed**
 
-![Reconciliation result](screenshots/04_reconciliation_result.png)
+![Reconciliation result](Screenshots/04_reconciliation_result.png)
 
 ## 6. Cleaning Rules
 
@@ -121,17 +121,17 @@ I built a 3-page Databricks AI/BI dashboard on top of the Gold tables. A PDF cop
 ### Page 1: Overview
 Total Bookings, Net Revenue, Room Nights and Cancelled Bookings, plus net revenue by stay month and by city.
 
-![Dashboard overview](screenshots/05_dashboard_overview.png)
+![Dashboard overview](Screenshots/05_dashboard_overview.png)
 
 ### Page 2: Hotels, Rooms & Channels
 Net revenue by hotel, a hotel table with average daily rate, revenue and rating by room type, and cancellation rate by booking channel.
 
-![Hotels, rooms and channels](screenshots/06_dashboard_hotels_rooms_channels.png)
+![Hotels, rooms and channels](Screenshots/06_dashboard_hotels_rooms_channels.png)
 
 ### Page 3: Data Quality
 Bronze, clean, rejected and duplicate row counts, the reconciliation table, and the data quality issues found in Bronze.
 
-![Data quality](screenshots/07_dashboard_data_quality.png)
+![Data quality](Screenshots/07_dashboard_data_quality.png)
 
 ## 8. Key Results
 
